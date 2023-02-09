@@ -11,12 +11,12 @@ OBJS		=	${SRCS:%.c=%.o}
 LIBFTDIR =	./include_libft
 PRINTFDIR	=	./include_printf
 
+all: ${NAME}
+
 ${NAME}: ${OBJS}
 	make -C $(LIBFTDIR)
 	make -C $(PRINTFDIR)
-	$(CC) $(CFLAGS) -I./include_libft $@ $^
-
-all: ${NAME}
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFTDIR)/libft.a $(PRINTFDIR)/libftprintf.a -o $(NAME)
 
 clean:
 	make clean -C $(LIBFTDIR)
