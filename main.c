@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:17:25 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/10 07:31:43 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/12 22:58:08 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,22 @@
 
 int	main(int argc, char *argv[])
 {
+	size_t	*num_argv;
 	size_t	i;
-	size_t num_after_atoi;
 
 	/* ###エラーケース
-	- 引数が整数のみではない
-	- 引数なしはエラー(標準エラー出力に"ERROR\n"を出力)
+	- 引数が整数のみではない(標準エラー出力に"ERROR\n"を出力)
+	- 引数がない場合は何もせずにプロンプトを返す
 	*/
-
 	// 引数なし
 	if (argc == 1)
-		return (0);
-
-
-	while()
-	if (argc == INT_MAX)
-	i = 1;
-	while (argv[i] != NULL)
+		put_error_and_exit();
+	num_argv = (size_t *)malloc(1000);
+	i = argc;
+	while (i-- >= 2)
 	{
-		num_after_atoi = ft_atoi(argv[i]);
-		printf("%zu", num_after_atoi);
-		i++;
+		num_argv[i] = ps_atoi(argv[i]);
+		ft_printf("%d\n", num_argv[i]);
 	}
 	return (0);
 }
