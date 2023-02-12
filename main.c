@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:17:25 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/12 22:58:08 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/12 23:23:38 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,18 @@
 
 int	main(int argc, char *argv[])
 {
-	size_t	*num_argv;
 	size_t	i;
+	t_node	stack_a;
+	t_node	*stack_pa;
 
-	/* ###エラーケース
-	- 引数が整数のみではない(標準エラー出力に"ERROR\n"を出力)
-	- 引数がない場合は何もせずにプロンプトを返す
-	*/
-	// 引数なし
+	stack_pa = &stack_a;
 	if (argc == 1)
 		put_error_and_exit();
-	num_argv = (size_t *)malloc(1000);
 	i = argc;
 	while (i-- >= 2)
 	{
-		num_argv[i] = ps_atoi(argv[i]);
-		ft_printf("%d\n", num_argv[i]);
+		stack_pa->num = ps_atoi(argv[i]);
+		ft_printf("%d\n", stack_pa->num);
 	}
 	return (0);
 }

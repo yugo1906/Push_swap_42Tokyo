@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:24:08 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/12 22:41:05 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/12 23:16:36 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 typedef struct s_node
 {
 	struct s_node	*prev;
-	int				st_num;
+	int				num;
 	struct s_node	*next;
 }					t_node;
 
