@@ -5,8 +5,8 @@
 
 NAME		=	push_swap
 CC			=	gcc
-CFLAGS	=	-Wall -Wextra -Werror
-SRCS		=	main.c
+CFLAGS	= -Wall -Wextra -Werror
+SRCS		=	main.c ps_atoi.c put_error_and_exit.c
 OBJS		=	${SRCS:%.c=%.o}
 LIBFTDIR =	./include_libft
 PRINTFDIR	=	./include_printf
