@@ -5,8 +5,14 @@
 
 NAME		=	push_swap
 CC			=	gcc
-CFLAGS	= -Wall -Wextra -Werror
-SRCS		=	main.c ps_atoi.c put_error_and_exit.c
+# hoshi::メモリーリークのオプションを提出前に外す
+CFLAGS	= -Wall -Wextra -Werror -g -fsanitize=address
+SRCS		=	main.c \
+					ps_atoi.c \
+					put_error_and_exit.c \
+					node_utils/ps_lstnew.c \
+					node_utils/ps_lstadd_back.c \
+					node_utils/ps_lstlast.c
 OBJS		=	${SRCS:%.c=%.o}
 LIBFTDIR =	./include_libft
 PRINTFDIR	=	./include_printf

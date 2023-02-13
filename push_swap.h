@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:24:08 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/12 23:16:36 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/13 22:22:40 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,8 @@ typedef struct s_node
 
 int					ps_atoi(const char *str);
 void				put_error_and_exit(void);
+void				ps_lstadd_back(t_node **lst, t_node *new);
+t_node				*ps_lstnew(int content);
+t_node				*ps_lstlast(t_node *lst);
 
 #endif
