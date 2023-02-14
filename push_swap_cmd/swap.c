@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 09:53:01 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/15 08:27:44 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/15 08:41:17 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	sa(t_node **stack, t_node **head)
 	tmp2 = (*stack)->num;
 	(*stack)->num = tmp1;
 	prev->num = tmp2;
+	write(1, "sa\n", 3);
 }
 
 void	sb(t_node **stack, t_node **head)
@@ -40,6 +41,7 @@ void	sb(t_node **stack, t_node **head)
 	tmp2 = (*stack)->num;
 	(*stack)->num = tmp1;
 	prev->num = tmp2;
+	write(1, "sb\n", 3);
 }
 
 void	ss(t_node **st_a, t_node **head_a, t_node **st_b, t_node **head_b)
@@ -63,4 +65,5 @@ void	ss(t_node **st_a, t_node **head_a, t_node **st_b, t_node **head_b)
 	tmp2 = (*st_b)->num;
 	(*st_b)->num = tmp1;
 	prev_b->num = tmp2;
+	write(1, "ss\n", 3);
 }
