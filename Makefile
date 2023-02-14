@@ -5,8 +5,10 @@
 
 NAME		=	push_swap
 CC			=	gcc
-# hoshi::メモリーリークのオプションを提出前に外す
-CFLAGS	= -Wall -Wextra -Werror -g -fsanitize=address
+# todo::メモリーリークのオプションを提出前に外す
+# todo::-Wall -Wextra -Werror をcflagsにつける
+CFLAGS	= -g -fsanitize=address
+# CFLAGS = -Wall -Wextra -Werror 
 SRCS		=	main.c \
 					ps_atoi.c \
 					put_error_and_exit.c \

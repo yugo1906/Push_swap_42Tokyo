@@ -6,45 +6,63 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:17:25 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/14 07:28:23 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/14 09:09:34 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-// void	init_stack(t_node **stack)
-// {
-// 	(*stack)->next = NULL;
-// 	(*stack)->prev = NULL;
-// }
+t_node	*init_stack(void)
+{
+	t_node	*new_node;
+
+	new_node = (t_node *)malloc(1 * sizeof(t_node));
+	if (new_node == NULL)
+	{
+		//todo::これまでに確保したnodeすべてをfree:error_all_free()
+		return (NULL);
+	}
+	new_node->num = 0;
+	new_node->next = NULL;
+	new_node->prev = NULL;
+	return (new_node);
+}
 
 int	main(int argc, char *argv[])
 {
+	size_t	tmp_argc;
 	size_t	i;
 	t_node	*stack_a;
-	// t_node *head;
+	t_node	*stack_b;
+	t_node	*head_a;
+	t_node	*head_b;
 
-	// t_node	*stack_b;
-	// head = stack_a;
-	// init_stack(&stack_b);
-	// t_node	stack_pa;
-	// t_node	*head;
-	// head = &stack_a;
-	// stack_a = ps_lstnew(0);
-
-	stack_a = ps_lstnew(0);
-
+	head_a = init_stack();
+	head_b = init_stack();
+	stack_a = head_a;
+	stack_b = head_b;
 	if (argc == 1)
 		put_error_and_exit();
-	i = argc;
 	ft_printf("argc = %d\n", argc);
-	// stack_a = head;
-	while (i-- >= 2)
+	tmp_argc = argc - 1;
+	i = 0;
+	while (i++ < tmp_argc)
 	{
+		ft_printf("i = %d\n", i);
 		stack_a->num = ps_atoi(argv[i]);
 		ft_printf("%d\n", stack_a->num);
-		stack_a->next = ps_lstnew(0);
+		if (i != tmp_argc)
+		{
+			stack_a->next = init_stack();
+			stack_a = stack_a->next;
+		}
+	}
+	stack_a = head_a;
+	while (stack_a != NULL)
+	{
+		ft_printf("OK\n");
+		ft_printf("stack_a->num = %d\n", stack_a->num);
 		stack_a = stack_a->next;
 	}
 	return (0);
