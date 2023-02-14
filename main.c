@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:17:25 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/14 09:09:34 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/14 09:23:00 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,36 @@ t_node	*init_stack(void)
 	return (new_node);
 }
 
+int	main(int argc, char *argv[])
+{
+	size_t	tmp_argc;
+	size_t	i;
+	t_node	*stack_a;
+	t_node	*stack_b;
+	t_node	*head_a;
+	t_node	*head_b;
+
+	head_a = init_stack();
+	head_b = init_stack();
+	stack_a = head_a;
+	stack_b = head_b;
+	if (argc == 1)
+		put_error_and_exit();
+	tmp_argc = argc - 1;
+	i = 0;
+	while (i++ < tmp_argc)
+	{
+		stack_a->num = ps_atoi(argv[i]);
+		if (i != tmp_argc)
+		{
+			stack_a->next = init_stack();
+			stack_a = stack_a->next;
+		}
+	}
+	return (0);
+}
+
+/*テストコード
 int	main(int argc, char *argv[])
 {
 	size_t	tmp_argc;
@@ -67,3 +97,4 @@ int	main(int argc, char *argv[])
 	}
 	return (0);
 }
+*/
