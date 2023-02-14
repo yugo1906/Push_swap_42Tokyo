@@ -1,0 +1,66 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/14 09:53:01 by yughoshi          #+#    #+#             */
+/*   Updated: 2023/02/15 08:27:44 by yughoshi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../push_swap.h"
+
+void	sa(t_node **stack, t_node **head)
+{
+	t_node	*prev;
+	int		tmp1;
+	int		tmp2;
+
+	*stack = *head;
+	tmp1 = (*stack)->num;
+	prev = *stack;
+	stack = &(*stack)->next;
+	tmp2 = (*stack)->num;
+	(*stack)->num = tmp1;
+	prev->num = tmp2;
+}
+
+void	sb(t_node **stack, t_node **head)
+{
+	t_node	*prev;
+	int		tmp1;
+	int		tmp2;
+
+	*stack = *head;
+	tmp1 = (*stack)->num;
+	prev = *stack;
+	stack = &(*stack)->next;
+	tmp2 = (*stack)->num;
+	(*stack)->num = tmp1;
+	prev->num = tmp2;
+}
+
+void	ss(t_node **st_a, t_node **head_a, t_node **st_b, t_node **head_b)
+{
+	t_node	*prev_a;
+	t_node	*prev_b;
+	int		tmp1;
+	int		tmp2;
+
+	*st_a = *head_a;
+	tmp1 = (*st_a)->num;
+	prev_a = *st_a;
+	st_a = &(*st_a)->next;
+	tmp2 = (*st_a)->num;
+	(*st_a)->num = tmp1;
+	prev_a->num = tmp2;
+	*st_b = *head_b;
+	tmp1 = (*st_b)->num;
+	prev_b = *st_b;
+	st_b = &(*st_b)->next;
+	tmp2 = (*st_b)->num;
+	(*st_b)->num = tmp1;
+	prev_b->num = tmp2;
+}

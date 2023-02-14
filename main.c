@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:17:25 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/14 09:44:59 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/15 08:28:50 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int	main(int argc, char *argv[])
 
 	init_stack(&head_a, &stack_a);
 	init_stack(&head_b, &stack_b);
-
 	if (argc == 1)
 		put_error_and_exit();
 	tmp_argc = argc - 1;
@@ -56,6 +55,22 @@ int	main(int argc, char *argv[])
 			stack_a->next = ps_lstnew(0);
 			stack_a = stack_a->next;
 		}
+	}
+	//テスト出力コード
+	stack_a = head_a;
+	while (stack_a != NULL)
+	{
+		// ft_printf("OK\n");
+		ft_printf("stack_a->num = %d\n", stack_a->num);
+		stack_a = stack_a->next;
+	}
+	sa(&stack_a, &head_a);
+	stack_a = head_a;
+	while (stack_a != NULL)
+	{
+		// ft_printf("OK\n");
+		ft_printf("stack_a->num = %d\n", stack_a->num);
+		stack_a = stack_a->next;
 	}
 	return (0);
 }
