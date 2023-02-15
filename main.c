@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:17:25 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/15 08:28:50 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/16 00:33:09 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,37 @@ int	main(int argc, char *argv[])
 			stack_a = stack_a->next;
 		}
 	}
-	//テスト出力コード
+	//テストコード:stack_aの値確認
 	stack_a = head_a;
 	while (stack_a != NULL)
 	{
-		// ft_printf("OK\n");
 		ft_printf("stack_a->num = %d\n", stack_a->num);
 		stack_a = stack_a->next;
 	}
-	sa(&stack_a, &head_a);
+	// sa(&stack_a, &head_a);
+	ft_printf("===\n");
+	// pa(&stack_a, &head_a, &stack_b, &head_b);
+	ft_printf("head_b->num = %d\n===\n", head_b->num);
+
+	//テストコード:stack_bの値確認
+	stack_b = head_b;
+	while (stack_b != NULL)
+	{
+		ft_printf("stack_b->num = %d\n", stack_b->num);
+		stack_b = stack_b->next;
+	}
+	ft_printf("===\n");
+
+	//テストコード:stack_a, bの値確認
 	stack_a = head_a;
-	while (stack_a != NULL)
+	stack_b = head_b;
+	while (stack_a != NULL && stack_b != NULL)
 	{
 		// ft_printf("OK\n");
 		ft_printf("stack_a->num = %d\n", stack_a->num);
+		ft_printf("stack_b->num = %d\n", stack_b->num);
 		stack_a = stack_a->next;
+		stack_b = stack_b->next;
 	}
 	return (0);
 }
