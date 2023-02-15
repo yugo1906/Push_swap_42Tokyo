@@ -26,8 +26,8 @@ void	init_stack(t_node **head, t_node **stack)
 	new->num = 0;
 	new->next = NULL;
 	new->prev = NULL;
-	*head = new;
-	*stack = *head;
+	*stack = new;
+	*head = *stack;
 }
 
 int	main(int argc, char *argv[])
