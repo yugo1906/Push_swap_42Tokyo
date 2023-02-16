@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 08:42:19 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/17 07:13:59 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/17 07:54:10 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,20 @@
 
 void	pa(t_node **st_a, t_node **head_a, t_node **st_b, t_node **head_b)
 {
+	t_node	*new_head_a;
+
 	*st_a = *head_a;
 	*st_b = *head_b;
-	if (st_a)
-	{
-		*head_b = *head_a;
-		*head_a = (*st_a)->next;
-		*st_b = *head_b;
-		*st_a = *head_a;
-		ft_printf("pa::st_a->num = %d\n", (*st_a)->num);
-		ft_printf("pa::(*st_b)->num = %d\n===\n", (*st_b)->num);
-	}
+	new_head_a = *head_a;
+	ft_printf("pa::st_a->num = %d\n", (*st_a)->num);
+	*head_a = (*head_a)->next;
+	new_head_a->next = NULL;
+	ft_printf("pa::st_a->num = %d\n", (*st_a)->num);
+	*head_b = new_head_a;
+	*st_a = *head_a;
+	*st_b = *head_b;
+	ft_printf("pa::st_a->num = %d\n", (*st_a)->num);
+	ft_printf("pa::(*st_b)->num = %d\n===\n", (*st_b)->num);
 }
 
 void	pb(t_node **st_a, t_node **head_a, t_node **st_b, t_node **head_b)
