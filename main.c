@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:17:25 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/17 07:16:59 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/17 08:37:28 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	init_stack(t_node **head)
 	}
 	new->next = *head;
 	*head = new;
-	(*head)->num = 999;
+	(*head)->num = 0;
 	(*head)->prev = NULL;
 	(*head)->next = NULL;
 }
@@ -39,8 +39,6 @@ int	main(int argc, char *argv[])
 	t_node	*head_a;
 	t_node	*head_b;
 
-	head_a = NULL;
-	head_b = NULL;
 	init_stack(&head_a);
 	init_stack(&head_b);
 	stack_a = head_a;
@@ -72,7 +70,11 @@ int	main(int argc, char *argv[])
 	ft_printf("===\n");
 	stack_a = head_a;
 	pa(&stack_a, &head_a, &stack_b, &head_b);
+	pa(&stack_a, &head_a, &stack_b, &head_b);
+	pa(&stack_a, &head_a, &stack_b, &head_b);
 	ft_printf("===pa後のstack_a===\n");
+	// pa(&stack_a, &head_a, &stack_b, &head_b);
+	stack_a = head_a;
 	while (stack_a != NULL)
 	{
 		ft_printf("stack_a->num = %d\n", stack_a->num);
