@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:17:25 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/17 08:37:28 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/17 08:39:35 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ int	main(int argc, char *argv[])
 	// sa(&stack_a, &head_a);
 	ft_printf("===\n");
 	stack_a = head_a;
-	pa(&stack_a, &head_a, &stack_b, &head_b);
-	pa(&stack_a, &head_a, &stack_b, &head_b);
-	pa(&stack_a, &head_a, &stack_b, &head_b);
+	pa(&head_a, &head_b);
+	pa(&head_a, &head_b);
+	pa(&head_a, &head_b);
 	ft_printf("===pa後のstack_a===\n");
 	// pa(&stack_a, &head_a, &stack_b, &head_b);
 	stack_a = head_a;

@@ -6,13 +6,13 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 08:42:19 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/17 08:35:54 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/17 08:39:19 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	pa(t_node **st_a, t_node **head_a, t_node **st_b, t_node **head_b)
+void	pa(t_node **head_a, t_node **head_b)
 {
 	t_node	*new_head_a;
 
@@ -28,8 +28,6 @@ void	pa(t_node **st_a, t_node **head_a, t_node **st_b, t_node **head_b)
 		new_head_a->next = *head_b;
 		*head_b = new_head_a;
 	}
-	*st_b = *head_b;
-	ft_printf("pa::(*st_b)->num = %d\n===\n", (*st_b)->num);
 }
 
 void	pb(t_node **st_a, t_node **head_a, t_node **st_b, t_node **head_b)
