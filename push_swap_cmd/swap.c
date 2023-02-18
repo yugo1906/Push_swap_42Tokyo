@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 09:53:01 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/15 08:41:17 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/19 08:32:04 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,16 @@ void	sa(t_node **stack, t_node **head)
 	int		tmp2;
 
 	*stack = *head;
-	tmp1 = (*stack)->num;
-	prev = *stack;
-	stack = &(*stack)->next;
-	tmp2 = (*stack)->num;
-	(*stack)->num = tmp1;
-	prev->num = tmp2;
-	write(1, "sa\n", 3);
+	if (!((*stack) == NULL) && !((*stack)->next == NULL))
+	{
+		tmp1 = (*stack)->num;
+		prev = *stack;
+		stack = &(*stack)->next;
+		tmp2 = (*stack)->num;
+		(*stack)->num = tmp1;
+		prev->num = tmp2;
+		write(1, "sa\n", 3);
+	}
 }
 
 void	sb(t_node **stack, t_node **head)
@@ -35,13 +38,16 @@ void	sb(t_node **stack, t_node **head)
 	int		tmp2;
 
 	*stack = *head;
-	tmp1 = (*stack)->num;
-	prev = *stack;
-	stack = &(*stack)->next;
-	tmp2 = (*stack)->num;
-	(*stack)->num = tmp1;
-	prev->num = tmp2;
-	write(1, "sb\n", 3);
+	if (!((*stack) == NULL) && !((*stack)->next == NULL))
+	{
+		tmp1 = (*stack)->num;
+		prev = *stack;
+		stack = &(*stack)->next;
+		tmp2 = (*stack)->num;
+		(*stack)->num = tmp1;
+		prev->num = tmp2;
+		write(1, "sb\n", 3);
+	}
 }
 
 void	ss(t_node **st_a, t_node **head_a, t_node **st_b, t_node **head_b)
