@@ -20,8 +20,8 @@ SRCS		=	main.c \
 					$(PSCMDDIR)/swap.c \
 					$(PSCMDDIR)/push.c
 OBJS		=	${SRCS:%.c=%.o}
-LIBFTDIR =	./include_libft
-PRINTFDIR	=	./include_printf
+LIBFTDIR =	./libft
+PRINTFDIR	=	./include_ft_printf
 
 all: ${NAME}
 
