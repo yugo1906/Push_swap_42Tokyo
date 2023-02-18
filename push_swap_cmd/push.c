@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 08:42:19 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/17 08:39:19 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/19 08:35:27 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,42 @@ void	pa(t_node **head_a, t_node **head_b)
 {
 	t_node	*new_head_a;
 
-	new_head_a = *head_a;
-	*head_a = (*head_a)->next;
-	if (!(*head_b)->num)
+	if (*head_a)
 	{
-		new_head_a->next = NULL;
-		*head_b = new_head_a;
-	}
-	else
-	{
-		new_head_a->next = *head_b;
-		*head_b = new_head_a;
+		new_head_a = *head_a;
+		*head_a = (*head_a)->next;
+		if (!(*head_b))
+		{
+			new_head_a->next = NULL;
+			*head_b = new_head_a;
+		}
+		else
+		{
+			new_head_a->next = *head_b;
+			*head_b = new_head_a;
+		}
+		write(1, "pa\n", 3);
 	}
 }
 
-void	pb(t_node **st_a, t_node **head_a, t_node **st_b, t_node **head_b)
+void	pb(t_node **head_b, t_node **head_a)
 {
-	ps_lstadd_front(head_a, ps_lstnew());
-	*st_b = *head_b;
-	*st_a = *head_a;
-	(*st_a)->num = (*st_b)->num;
-	ft_printf("pb::(*st_a)->num = %d\n===\n", (*st_a)->num);
-}
+	t_node	*new_head_b;
 
-// void	pb(void)
-// {
-// }
-void	testpa(t_node **st_a, t_node **head_a, t_node **st_b, t_node **head_b)
-{
-	ps_lstadd_front(head_b, ps_lstnew());
-	*st_a = *head_a;
-	*st_b = *head_b;
-	(*st_b)->num = 2;
-	ft_printf("pa::(*st_b)->num = %d\n===\n", (*st_b)->num);
+	if (*head_b)
+	{
+		new_head_b = *head_b;
+		*head_b = (*head_b)->next;
+		if (!(*head_a))
+		{
+			new_head_b->next = NULL;
+			*head_a = new_head_b;
+		}
+		else
+		{
+			new_head_b->next = *head_a;
+			*head_a = new_head_b;
+		}
+		write(1, "pb\n", 3);
+	}
 }

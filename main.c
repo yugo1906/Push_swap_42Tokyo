@@ -6,14 +6,14 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:17:25 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/17 08:39:35 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/19 08:34:21 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-void	init_stack(t_node **head)
+void	init_stack(t_node **stack)
 {
 	t_node	*new;
 
@@ -23,11 +23,11 @@ void	init_stack(t_node **head)
 		// todo::これまでに確保したnodeすべてをfree:error_all_free_exit()
 		//  all_free_and_exit();
 	}
-	new->next = *head;
-	*head = new;
-	(*head)->num = 0;
-	(*head)->prev = NULL;
-	(*head)->next = NULL;
+	new->next = *stack;
+	*stack = new;
+	(*stack)->num = 0;
+	(*stack)->prev = NULL;
+	(*stack)->next = NULL;
 }
 
 int	main(int argc, char *argv[])
@@ -39,19 +39,17 @@ int	main(int argc, char *argv[])
 	t_node	*head_a;
 	t_node	*head_b;
 
-	init_stack(&head_a);
-	init_stack(&head_b);
-	stack_a = head_a;
-	stack_b = head_b;
+	stack_a = NULL;
+	init_stack(&stack_a);
+	head_a = stack_a;
+	head_b = NULL;
 	if (argc == 1)
 		put_error_and_exit();
 	tmp_argc = argc - 1;
 	i = 0;
 	while (i++ < tmp_argc)
 	{
-		// ft_printf("i = %d\n", i);
 		stack_a->num = ps_atoi(argv[i]);
-		// ft_printf("%d\n", stack_a->num);
 		if (i != tmp_argc)
 		{
 			stack_a->next = ps_lstnew();
@@ -61,18 +59,34 @@ int	main(int argc, char *argv[])
 	/*todo::最後に消す スタック内を確認するテストコード */
 	//テストコード:stack_aの値確認
 	stack_a = head_a;
+	ft_printf("stack_aの初期値\n");
 	while (stack_a != NULL)
 	{
 		ft_printf("stack_a->num = %d\n", stack_a->num);
 		stack_a = stack_a->next;
 	}
+	// swapの挙動確認
+	sa(&stack_a, &head_a);
+	while (stack_a != NULL)
+	{
+		ft_printf("stack_a->num = %d\n", stack_a->num);
+		stack_a = stack_a->next;
+	}
+	pa(&head_a, &head_b);
+	pa(&head_a, &head_b);
+	sb(&stack_b, &head_b);
+	while (stack_b != NULL)
+	{
+		ft_printf("stack_b->num = %d\n", stack_b->num);
+		stack_b = stack_b->next;
+	}
+	/*
 	// sa(&stack_a, &head_a);
-	ft_printf("===\n");
 	stack_a = head_a;
+	stack_b = head_b;
 	pa(&head_a, &head_b);
 	pa(&head_a, &head_b);
-	pa(&head_a, &head_b);
-	ft_printf("===pa後のstack_a===\n");
+	ft_printf("\n===pa後のstack_a===\n\n");
 	// pa(&stack_a, &head_a, &stack_b, &head_b);
 	stack_a = head_a;
 	while (stack_a != NULL)
@@ -80,19 +94,22 @@ int	main(int argc, char *argv[])
 		ft_printf("stack_a->num = %d\n", stack_a->num);
 		stack_a = stack_a->next;
 	}
-	ft_printf("===最終のstack_aの確認===\n");
-	// pa(&stack_a, &head_a, &stack_b, &head_b);
-	// pa(&stack_a, &head_a, &stack_b, &head_b);
-	// ft_printf("head_b->num = %d\n===\n", head_b->num);
-	// pb(&stack_a, &head_a, &stack_b, &head_b);
-	//テストコード:stack_aの値確認
+	ft_printf("\n===pb前のstack_bの確認===\n\n");
+	stack_b = head_b;
+	while (stack_b != NULL)
+	{
+		ft_printf("stack_b->num = %d\n", stack_b->num);
+		stack_b = stack_b->next;
+	}
+	pb(&head_b, &head_a);
+	ft_printf("\n===pb後のstack_aの確認===\n\n");
 	stack_a = head_a;
 	while (stack_a != NULL)
 	{
 		ft_printf("stack_a->num = %d\n", stack_a->num);
 		stack_a = stack_a->next;
 	}
-	ft_printf("===最終のstack_bの確認===\n");
+	ft_printf("\n===最終のstack_bの確認===\n");
 	// テストコード:stack_bの値確認
 	stack_b = head_b;
 	while (stack_b != NULL)
@@ -140,6 +157,6 @@ int	main(int argc, char *argv[])
 		ft_printf("stack_a->num = %d\n", stack_a->num);
 		stack_a = stack_a->next;
 	}
+*/
 	return (0);
 }
-*/
