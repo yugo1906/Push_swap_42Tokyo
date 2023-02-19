@@ -21,7 +21,7 @@ SRCS		=	main.c \
 					$(PSCMDDIR)/push.c
 OBJS		=	${SRCS:%.c=%.o}
 LIBFTDIR =	./libft
-PRINTFDIR	=	./include_ft_printf
+PRINTFDIR	=	./include_printf
 
 all: ${NAME}
 

@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:17:25 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/19 08:34:21 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/19 10:13:11 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,31 @@ int	main(int argc, char *argv[])
 	}
 	pa(&head_a, &head_b);
 	pa(&head_a, &head_b);
+	pa(&head_a, &head_b);
+	pa(&head_a, &head_b);
+	// pa(&head_a, &head_b);
 	sb(&stack_b, &head_b);
+	ft_printf("ss前===\n");
+	stack_a = head_a;
+	stack_b = head_b;
+	while (stack_a != NULL)
+	{
+		ft_printf("stack_a->num = %d\n", stack_a->num);
+		stack_a = stack_a->next;
+	}
+	while (stack_b != NULL)
+	{
+		ft_printf("stack_b->num = %d\n", stack_b->num);
+		stack_b = stack_b->next;
+	}
+	stack_a = head_a;
+	stack_b = head_b;
+	ss(&stack_a, &head_a, &stack_b, &head_b);
+	while (stack_a != NULL)
+	{
+		ft_printf("stack_a->num = %d\n", stack_a->num);
+		stack_a = stack_a->next;
+	}
 	while (stack_b != NULL)
 	{
 		ft_printf("stack_b->num = %d\n", stack_b->num);
@@ -120,7 +144,6 @@ int	main(int argc, char *argv[])
 	return (0);
 }
 
-/*テストコード
 int	main(int argc, char *argv[])
 {
 	size_t	tmp_argc;

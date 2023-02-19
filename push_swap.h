@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:24:08 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/17 08:50:48 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/19 09:29:32 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define PUSH_SWAP_H
 # define FD_2 2
 
-# include "./include_libft/libft.h"
 # include "./include_printf/ft_printf.h"
+# include "./libft/libft.h"
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -34,6 +34,8 @@ t_node				*ps_lstnew(void);
 t_node				*ps_lstlast(t_node *lst);
 void				sa(t_node **stack, t_node **head);
 void				sb(t_node **stack, t_node **head);
+void				ss(t_node **st_a, t_node **head_a, t_node **st_b,
+						t_node **head_b);
 void				w_swap(t_node **st_a, t_node **head_a, t_node **st_b,
 						t_node **head_b);
 void				ps_lstadd_front(t_node ***lst, t_node **new);
