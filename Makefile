@@ -18,7 +18,9 @@ SRCS		=	main.c \
 					$(LISTDIR)/ps_lstadd_back.c \
 					$(LISTDIR)/ps_lstlast.c \
 					$(PSCMDDIR)/swap.c \
-					$(PSCMDDIR)/push.c
+					$(PSCMDDIR)/push.c \
+					$(PSCMDDIR)/rotate.c \
+					$(PSCMDDIR)/reverse_rotate.c
 OBJS		=	${SRCS:%.c=%.o}
 LIBFTDIR =	./libft
 PRINTFDIR	=	./include_printf
