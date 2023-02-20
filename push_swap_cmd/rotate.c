@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 10:23:45 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/20 23:43:23 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/21 08:06:14 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	rr(t_node **st_a, t_node **head_a, t_node **st_b, t_node **head_b)
 {
 	*st_a = *head_a;
 	*st_b = *head_b;
+	if (*st_a && (*st_a)->next && (*st_b) && (*st_b)->next)
 	{
 		rotate(st_a, head_a);
 		rotate(st_b, head_b);
