@@ -27,7 +27,7 @@ PRINTFDIR	=	./include_printf
 
 all: ${NAME}
 
-${NAME}: ${OBJS}
+${NAME}: ${OBJS} push_swap.h
 	make -C $(LIBFTDIR)
 	make -C $(PRINTFDIR)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFTDIR)/libft.a $(PRINTFDIR)/libftprintf.a -o $(NAME)
