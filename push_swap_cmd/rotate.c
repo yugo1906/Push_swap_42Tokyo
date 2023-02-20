@@ -6,13 +6,13 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 10:23:45 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/19 12:53:03 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/20 23:43:23 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ra(t_node **stack, t_node **head)
+void	rotate(t_node **stack, t_node **head)
 {
 	size_t	i;
 
@@ -35,33 +35,39 @@ void	ra(t_node **stack, t_node **head)
 			i--;
 		}
 		(*stack)->next = NULL;
+	}
+}
+
+void	ra(t_node **stack, t_node **head)
+{
+	size_t	i;
+
+	*stack = *head;
+	if (!((*stack) == NULL) && !((*stack)->next == NULL))
+	{
+		rotate(stack, head);
 		write(1, "ra\n", 3);
 	}
 }
 
 void	rb(t_node **stack, t_node **head)
 {
-	size_t i;
+	size_t	i;
 
 	*stack = *head;
 	if (!((*stack) == NULL) && !((*stack)->next == NULL))
 	{
-		i = 0;
-		while ((*stack)->next)
-		{
-			*stack = (*stack)->next;
-			i++;
-		}
-		(*stack)->next = *head;
-		*stack = *head;
-		*head = (*stack)->next;
-		*stack = *head;
-		while (!(i <= 0))
-		{
-			*stack = (*stack)->next;
-			i--;
-		}
-		(*stack)->next = NULL;
+		rotate(stack, head);
 		write(1, "rb\n", 3);
+	}
+}
+
+void	rr(t_node **st_a, t_node **head_a, t_node **st_b, t_node **head_b)
+{
+	if (!*st_a && !(*st_a)->next && !(*st_b) && !(*st_b)->next)
+	{
+		rotate(st_a, head_a);
+		rotate(st_b, head_b);
+		write(1, "rr\n", 3);
 	}
 }

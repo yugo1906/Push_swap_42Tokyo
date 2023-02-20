@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:24:08 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/20 09:34:59 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/20 23:34:31 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,7 @@ void				testpa(t_node **st_a, t_node **head_a, t_node **st_b,
 						t_node **head_b);
 void				ra(t_node **stack, t_node **head);
 void				rb(t_node **stack, t_node **head);
+void				rotate(t_node **stack, t_node **head);
+void				rr(t_node **st_a, t_node **head_a, t_node **st_b,
+						t_node **head_b);
 #endif
