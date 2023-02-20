@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 10:23:45 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/21 08:26:20 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/21 08:52:48 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	rotate(t_node **stack, t_node **head)
 		*stack = *head;
 		*head = (*stack)->next;
 		*stack = *head;
-		while (i != 0)
+		while (i > 0)
 		{
 			*stack = (*stack)->next;
 			i--;
