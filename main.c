@@ -6,28 +6,28 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:17:25 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/20 09:34:55 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/20 09:37:19 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-void	init_stack(t_node **stack)
-{
-	t_node	*new;
+// void	init_stack(t_node **stack)
+// {
+// 	t_node	*new;
 
-	new = (t_node *)malloc(1 * sizeof(t_node));
-	if (new == NULL)
-	{
-		// todo::これまでに確保したnodeすべてをfree:error_all_free_exit()
-		//  all_free_and_exit();
-	}
-	new->next = *stack;
-	*stack = new;
-	(*stack)->num = 0;
-	(*stack)->next = NULL;
-}
+// 	new = (t_node *)malloc(1 * sizeof(t_node));
+// 	if (new == NULL)
+// 	{
+// 		// todo::これまでに確保したnodeすべてをfree:error_all_free_exit()
+// 		//  all_free_and_exit();
+// 	}
+// 	new->next = *stack;
+// 	*stack = new;
+// 	(*stack)->num = 0;
+// 	(*stack)->next = NULL;
+// }
 
 int	main(int argc, char *argv[])
 {
