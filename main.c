@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:17:25 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/19 12:59:27 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/20 09:34:55 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	init_stack(t_node **stack)
 	new->next = *stack;
 	*stack = new;
 	(*stack)->num = 0;
-	(*stack)->prev = NULL;
 	(*stack)->next = NULL;
 }
 
@@ -39,8 +38,8 @@ int	main(int argc, char *argv[])
 	t_node	*head_a;
 	t_node	*head_b;
 
-	stack_a = NULL;
-	init_stack(&stack_a);
+	stack_a = ps_lstnew();
+	// init_stack(&stack_a);
 	head_a = stack_a;
 	head_b = NULL;
 	if (argc == 1)
@@ -56,66 +55,68 @@ int	main(int argc, char *argv[])
 			stack_a = stack_a->next;
 		}
 	}
+	// stack_a = head_a;
+	sa(&stack_a, &head_a);
 	/*todo::最後に消す スタック内を確認するテストコード */
 	//テストコード:stack_aの値確認
-	stack_a = head_a;
-	ft_printf("stack_aの初期値\n");
-	while (stack_a != NULL)
-	{
-		ft_printf("stack_a->num = %d\n", stack_a->num);
-		stack_a = stack_a->next;
-	}
-	// rotateの挙動確認
-	ft_printf("raの挙動確認===\n");
-	ra(&stack_a, &head_a);
-	ra(&stack_a, &head_a);
-	ra(&stack_a, &head_a);
-	rb(&stack_b, &head_b);
-	stack_a = head_a;
-	while (stack_a != NULL)
-	{
-		ft_printf("stack_a->num = %d\n", stack_a->num);
-		stack_a = stack_a->next;
-		i--;
-	}
-	// swapの挙動確認
-	sa(&stack_a, &head_a);
-	ft_printf("saの挙動確認===\n");
-	while (stack_a != NULL)
-	{
-		ft_printf("stack_a->num = %d\n", stack_a->num);
-		stack_a = stack_a->next;
-	}
-	pa(&head_a, &head_b);
-	pa(&head_a, &head_b);
+	// stack_a = head_a;
+	// ft_printf("stack_aの初期値\n");
+	// while (stack_a != NULL)
+	// {
+	// 	ft_printf("stack_a->num = %d\n", stack_a->num);
+	// 	stack_a = stack_a->next;
+	// }
+	// // rotateの挙動確認
+	// ft_printf("raの挙動確認===\n");
+	// ra(&stack_a, &head_a);
+	// ra(&stack_a, &head_a);
+	// ra(&stack_a, &head_a);
+	// rb(&stack_b, &head_b);
+	// stack_a = head_a;
+	// while (stack_a != NULL)
+	// {
+	// 	ft_printf("stack_a->num = %d\n", stack_a->num);
+	// 	stack_a = stack_a->next;
+	// 	i--;
+	// }
+	// // swapの挙動確認
+	// sa(&stack_a, &head_a);
+	// ft_printf("saの挙動確認===\n");
+	// while (stack_a != NULL)
+	// {
+	// 	ft_printf("stack_a->num = %d\n", stack_a->num);
+	// 	stack_a = stack_a->next;
+	// }
 	// pa(&head_a, &head_b);
-	// sb(&stack_b, &head_b);
-	ft_printf("ss前===\n");
-	stack_a = head_a;
-	stack_b = head_b;
-	while (stack_a != NULL)
-	{
-		ft_printf("stack_a->num = %d\n", stack_a->num);
-		stack_a = stack_a->next;
-	}
-	while (stack_b != NULL)
-	{
-		ft_printf("stack_b->num = %d\n", stack_b->num);
-		stack_b = stack_b->next;
-	}
-	stack_a = head_a;
-	stack_b = head_b;
-	ft_printf("ss後===\n");
-	ss(&stack_a, &head_a, &stack_b, &head_b);
-	while (stack_a != NULL)
-	{
-		ft_printf("stack_a->num = %d\n", stack_a->num);
-		stack_a = stack_a->next;
-	}
-	while (stack_b != NULL)
-	{
-		ft_printf("stack_b->num = %d\n", stack_b->num);
-		stack_b = stack_b->next;
-	}
+	// pa(&head_a, &head_b);
+	// // pa(&head_a, &head_b);
+	// // sb(&stack_b, &head_b);
+	// ft_printf("ss前===\n");
+	// stack_a = head_a;
+	// stack_b = head_b;
+	// while (stack_a != NULL)
+	// {
+	// 	ft_printf("stack_a->num = %d\n", stack_a->num);
+	// 	stack_a = stack_a->next;
+	// }
+	// while (stack_b != NULL)
+	// {
+	// 	ft_printf("stack_b->num = %d\n", stack_b->num);
+	// 	stack_b = stack_b->next;
+	// }
+	// stack_a = head_a;
+	// stack_b = head_b;
+	// ft_printf("ss後===\n");
+	// ss(&stack_a, &head_a, &stack_b, &head_b);
+	// while (stack_a != NULL)
+	// {
+	// 	ft_printf("stack_a->num = %d\n", stack_a->num);
+	// 	stack_a = stack_a->next;
+	// }
+	// while (stack_b != NULL)
+	// {
+	// 	ft_printf("stack_b->num = %d\n", stack_b->num);
+	// 	stack_b = stack_b->next;
+	// }
 	return (0);
 }

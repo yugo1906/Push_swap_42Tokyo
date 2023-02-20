@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 21:56:13 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/16 20:33:15 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/20 09:36:28 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ t_node	*ps_lstnew(void)
 	{
 		// todo::これまでに確保したnodeすべてをfree:error_all_free_exit();
 	}
-	// new_node->num = 0;
+	new_node->num = 0;
 	new_node->next = NULL;
-	new_node->prev = NULL;
 	return (new_node);
 }
