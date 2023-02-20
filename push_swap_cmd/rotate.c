@@ -47,6 +47,7 @@ void	ra(t_node **stack, t_node **head)
 	{
 		rotate(stack, head);
 		write(1, "ra\n", 3);
+		*stack = *head;
 	}
 }
 
@@ -59,15 +60,19 @@ void	rb(t_node **stack, t_node **head)
 	{
 		rotate(stack, head);
 		write(1, "rb\n", 3);
+		*stack = *head;
 	}
 }
 
 void	rr(t_node **st_a, t_node **head_a, t_node **st_b, t_node **head_b)
 {
-	if (!*st_a && !(*st_a)->next && !(*st_b) && !(*st_b)->next)
+	*st_a = *head_a;
+	*st_b = *head_b;
 	{
 		rotate(st_a, head_a);
 		rotate(st_b, head_b);
 		write(1, "rr\n", 3);
+		*st_a = *head_a;
+		*st_b = *head_b;
 	}
 }
