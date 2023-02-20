@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 09:53:01 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/19 10:12:56 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/20 09:40:32 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	sa(t_node **stack, t_node **head)
 	{
 		tmp1 = (*stack)->num;
 		prev = *stack;
-		stack = &(*stack)->next;
+		*stack = (*stack)->next;
 		tmp2 = (*stack)->num;
 		(*stack)->num = tmp1;
 		prev->num = tmp2;
@@ -42,7 +42,7 @@ void	sb(t_node **stack, t_node **head)
 	{
 		tmp1 = (*stack)->num;
 		prev = *stack;
-		stack = &(*stack)->next;
+		*stack = (*stack)->next;
 		tmp2 = (*stack)->num;
 		(*stack)->num = tmp1;
 		prev->num = tmp2;
@@ -63,14 +63,14 @@ void	ss(t_node **st_a, t_node **head_a, t_node **st_b, t_node **head_b)
 		*st_a = *head_a;
 		tmp1 = (*st_a)->num;
 		prev_a = *st_a;
-		st_a = &(*st_a)->next;
+		*st_a = (*st_a)->next;
 		tmp2 = (*st_a)->num;
 		(*st_a)->num = tmp1;
 		prev_a->num = tmp2;
 		*st_b = *head_b;
 		tmp1 = (*st_b)->num;
 		prev_b = *st_b;
-		st_b = &(*st_b)->next;
+		*st_b = (*st_b)->next;
 		tmp2 = (*st_b)->num;
 		(*st_b)->num = tmp1;
 		prev_b->num = tmp2;
