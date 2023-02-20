@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 09:53:01 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/20 09:40:32 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/20 23:40:21 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	sa(t_node **stack, t_node **head)
 		prev->num = tmp2;
 		write(1, "sa\n", 3);
 	}
+	*stack = *head;
 }
 
 void	sb(t_node **stack, t_node **head)
@@ -48,6 +49,7 @@ void	sb(t_node **stack, t_node **head)
 		prev->num = tmp2;
 		write(1, "sb\n", 3);
 	}
+	*stack = *head;
 }
 
 void	ss(t_node **st_a, t_node **head_a, t_node **st_b, t_node **head_b)
@@ -57,8 +59,7 @@ void	ss(t_node **st_a, t_node **head_a, t_node **st_b, t_node **head_b)
 	int		tmp1;
 	int		tmp2;
 
-	if (!((*st_a) == NULL) && !((*st_a)->next == NULL) && !((*st_b) == NULL)
-		&& !((*st_b)->next == NULL))
+	if (*st_a && (*st_a)->next && *st_b && (*st_b)->next)
 	{
 		*st_a = *head_a;
 		tmp1 = (*st_a)->num;
@@ -76,4 +77,6 @@ void	ss(t_node **st_a, t_node **head_a, t_node **st_b, t_node **head_b)
 		prev_b->num = tmp2;
 		write(1, "ss\n", 3);
 	}
+	*st_a = *head_a;
+	*st_b = *head_b;
 }
