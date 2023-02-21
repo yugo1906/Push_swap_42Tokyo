@@ -6,17 +6,13 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 10:23:42 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/21 08:52:29 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/21 09:02:11 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-// void	reverse_rotate(void)
-// {
-// }
-
-void	rra(t_node **stack, t_node **head)
+void	reverse_rotate(t_node **stack, t_node **head)
 {
 	size_t	i;
 
@@ -24,13 +20,11 @@ void	rra(t_node **stack, t_node **head)
 	*stack = *head;
 	if (*stack && (*stack)->next)
 	{
-		// 最後のnodeを特定する
 		while ((*stack)->next)
 		{
 			*stack = (*stack)->next;
 			i++;
 		}
-		// 最後のnodeが1番目のnodeを指す
 		(*stack)->next = *head;
 		*head = *stack;
 		while (i > 0)
@@ -40,14 +34,41 @@ void	rra(t_node **stack, t_node **head)
 		}
 		(*stack)->next = NULL;
 		*stack = *head;
-		write(1, "rra\n", 4);
 	}
 }
 
-// void	rrb(void)
-// {
-// }
+void	rra(t_node **stack, t_node **head)
+{
+	*stack = *head;
+	if (*stack && (*stack)->next)
+	{
+		reverse_rotate(stack, head);
+		write(1, "rra\n", 4);
+		*stack = *head;
+	}
+}
 
-// void	rrr(void)
-// {
-// }
+void	rrb(t_node **stack, t_node **head)
+{
+	*stack = *head;
+	if (*stack && (*stack)->next)
+	{
+		reverse_rotate(stack, head);
+		write(1, "rrb\n", 4);
+		*stack = *head;
+	}
+}
+
+void	rrr(t_node **st_a, t_node **head_a, t_node **st_b, t_node **head_b)
+{
+	*st_a = *head_a;
+	*st_b = *head_b;
+	if (*st_a && (*st_a)->next && (*st_b) && (*st_b)->next)
+	{
+		reverse_rotate(st_a, head_a);
+		reverse_rotate(st_b, head_b);
+		write(1, "rrr\n", 4);
+		*st_a = *head_a;
+		*st_b = *head_b;
+	}
+}
