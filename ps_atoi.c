@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 09:39:48 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/12 22:51:27 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/21 09:38:34 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,22 @@ static int	ft_isspace(int c)
 	return (0);
 }
 
+size_t	check_space_and_check_sign(const char *str, int *sign)
+{
+	size_t	i;
+
+	i = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			*sign = -1;
+		i++;
+	}
+	return (i);
+}
+
 int	ps_atoi(const char *str)
 {
 	long long	res;
@@ -29,15 +45,7 @@ int	ps_atoi(const char *str)
 
 	res = 0;
 	sign = 1;
-	i = 0;
-	while (ft_isspace(str[i]))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}
+	i = check_space_and_check_sign(str, &sign);
 	while (ft_isdigit(str[i]))
 	{
 		if (ft_isdigit(str[i]) == 0)
@@ -50,6 +58,8 @@ int	ps_atoi(const char *str)
 		i++;
 	}
 	if (!ft_isdigit(str[i]) && str[i] != '\0')
+		put_error_and_exit();
+	if (res > INT_MAX || res < INT_MIN)
 		put_error_and_exit();
 	return ((int)res);
 }
