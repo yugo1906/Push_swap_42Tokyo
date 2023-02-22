@@ -12,25 +12,26 @@
 
 #include "push_swap.h"
 
-bool	is_need_sort(t_node **stack_a)
+void	check_need_sort(t_node **stack_a)
 {
 	while (*stack_a && (*stack_a)->next)
 	{
 		if ((*stack_a)->num > (*stack_a)->next->num)
 		{
-			return (true);
+			return ;
 		}
 		*stack_a = (*stack_a)->next;
 	}
-	return (false);
+	all_stack_free(stack_a);
+	exit(EXIT_SUCCESS);
 }
 
 void	sort(int argc, t_node *head_a, t_node *stack_a)
 {
-	// t_node	*stack_b;
-	// t_node	*head_b;
-	// stack_b = NULL;
-	// head_b = NULL;
+	t_node	*stack_b;
+	t_node	*head_b;
+	stack_b = NULL;
+	head_b = NULL;
 	if (argc == 1)
 	{
 		exit(EXIT_SUCCESS);
@@ -39,10 +40,10 @@ void	sort(int argc, t_node *head_a, t_node *stack_a)
 	{
 		sort_two(head_a, stack_a);
 	}
-	// else if (argc == 3)
-	// {
-	// 	sort_three(head_a, stack_a, head_b, stack_b);
-	// }
+	else if (argc == 3)
+	{
+		sort_three(head_a, stack_a, head_b, stack_b);
+	}
 	// else if (argc <= 5)
 	// {
 	// 	sort_five(head_a, stack_a, head_b, stack_b);
@@ -55,7 +56,7 @@ void	sort(int argc, t_node *head_a, t_node *stack_a)
 
 int	main(int argc, char *argv[])
 {
-	int		i;
+	int	i;
 	t_node	*stack_a;
 	t_node	*head_a;
 
@@ -75,11 +76,7 @@ int	main(int argc, char *argv[])
 		}
 	}
 	stack_a = head_a;
-	if (!is_need_sort(&stack_a))
-	{
-		all_stack_free(&stack_a);
-		exit(EXIT_SUCCESS);
-	}
+	check_need_sort(&stack_a);
 	sort(argc, head_a, stack_a);
 	return (0);
 }
