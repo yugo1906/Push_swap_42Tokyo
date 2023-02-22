@@ -8,7 +8,7 @@ CC			=	gcc
 # todo::メモリーリークのオプションを提出前に外す
 # todo::-Wall -Wextra -Werror をcflagsにつける
 CFLAGS	= -g -fsanitize=address
-# CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 LISTDIR = list_func_utils
 PSCMDDIR = push_swap_cmd
 SRCS		=	main.c \
