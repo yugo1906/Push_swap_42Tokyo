@@ -13,7 +13,7 @@ LISTDIR = list_func_utils
 PSCMDDIR = push_swap_cmd
 SRCS		=	main.c \
 					ps_atoi.c \
-					put_error_and_exit.c \
+					program_end.c \
 					$(LISTDIR)/ps_lstnew.c \
 					$(LISTDIR)/ps_lstadd_back.c \
 					$(LISTDIR)/ps_lstlast.c \
