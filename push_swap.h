@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:24:08 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/22 06:52:12 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/22 09:02:07 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ void				sa(t_node **stack, t_node **head);
 void				sb(t_node **stack, t_node **head);
 void				ss(t_node **st_a, t_node **head_a, t_node **st_b,
 						t_node **head_b);
-void				pa(t_node **head_a, t_node **head_b);
-void				pb(t_node **head_b, t_node **head_a);
+void				pa(t_node **head_b, t_node **st_b, t_node **head_a,
+						t_node **st_a);
+void				pb(t_node **head_a, t_node **st_a, t_node **head_b,
+						t_node **st_b);
 void				ra(t_node **stack, t_node **head);
 void				rb(t_node **stack, t_node **head);
 void				rotate(t_node **stack, t_node **head);
