@@ -6,17 +6,29 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:17:25 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/22 23:06:47 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/23 00:06:00 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+bool	is_need_sort(t_node **stack_a)
+{
+	while (*stack_a && (*stack_a)->next)
+	{
+		if ((*stack_a)->num > (*stack_a)->next->num)
+		{
+			return (true);
+		}
+		*stack_a = (*stack_a)->next;
+	}
+	return (false);
+}
+
 void	sort(int argc, t_node *head_a, t_node *stack_a)
 {
 	// t_node	*stack_b;
 	// t_node	*head_b;
-
 	// stack_b = NULL;
 	// head_b = NULL;
 	if (argc == 1)
@@ -63,6 +75,11 @@ int	main(int argc, char *argv[])
 		}
 	}
 	stack_a = head_a;
+	if (!is_need_sort(&stack_a))
+	{
+		all_stack_free(&stack_a);
+		exit(EXIT_SUCCESS);
+	}
 	sort(argc, head_a, stack_a);
 	return (0);
 }
