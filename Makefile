@@ -11,6 +11,7 @@ CFLAGS	= -g -fsanitize=address
 CFLAGS = -Wall -Wextra -Werror
 LISTDIR = list_func_utils
 PSCMDDIR = push_swap_cmd
+PSSORTDIR = push_swap_sort
 SRCS		=	main.c \
 					ps_atoi.c \
 					program_end.c \
@@ -21,8 +22,8 @@ SRCS		=	main.c \
 					$(PSCMDDIR)/push.c \
 					$(PSCMDDIR)/rotate.c \
 					$(PSCMDDIR)/reverse_rotate.c \
-					sort_two.c \
-					sort_three.c
+					$(PSSORTDIR)/sort_two.c \
+					$(PSSORTDIR)/sort_three.c
 OBJS		=	${SRCS:%.c=%.o}
 LIBFTDIR =	./libft
 PRINTFDIR	=	./include_printf

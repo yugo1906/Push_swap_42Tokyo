@@ -6,11 +6,11 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 22:47:17 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/22 23:10:31 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/26 17:42:22 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	sort_two(t_node *head_a, t_node *stack_a)
 {

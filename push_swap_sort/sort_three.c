@@ -6,11 +6,11 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 22:47:21 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/26 17:26:54 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/26 17:42:17 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	sort_case1(t_node *head, t_node *stack)
 {
