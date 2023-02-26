@@ -23,7 +23,8 @@ SRCS		=	main.c \
 					$(PSCMDDIR)/rotate.c \
 					$(PSCMDDIR)/reverse_rotate.c \
 					$(PSSORTDIR)/sort_two.c \
-					$(PSSORTDIR)/sort_three.c
+					$(PSSORTDIR)/sort_three.c \
+					$(PSSORTDIR)/sort_four.c
 OBJS		=	${SRCS:%.c=%.o}
 LIBFTDIR =	./libft
 PRINTFDIR	=	./include_printf

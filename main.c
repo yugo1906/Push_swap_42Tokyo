@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:17:25 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/23 02:19:11 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/26 19:22:43 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ void	check_need_sort(t_node **stack_a, t_node **head_a)
 
 void	sort(int argc, t_node *head_a, t_node *stack_a)
 {
-	// t_node	*stack_b;
-	// t_node	*head_b;
-	// stack_b = NULL;
-	// head_b = NULL;
+	t_node	*stack_b;
+	t_node	*head_b;
+
+	stack_b = NULL;
+	head_b = stack_b;
 	if (argc == 1)
 	{
 		exit(EXIT_SUCCESS);
@@ -45,10 +46,11 @@ void	sort(int argc, t_node *head_a, t_node *stack_a)
 	{
 		sort_three(head_a, stack_a);
 	}
-	// else if (argc <= 5)
-	// {
-	// 	sort_five(head_a, stack_a, head_b, stack_b);
-	// }
+	else if (argc == 4)
+	{
+		sort_four(head_a, stack_a, head_b, stack_b);
+	}
+	// else if (argc == 5)
 	// else
 	// {
 	// 	sort_any(head_a, stack_a, head_b, stack_b);
