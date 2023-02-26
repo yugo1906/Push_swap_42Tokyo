@@ -6,18 +6,19 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:17:25 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/23 00:06:00 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/23 02:19:11 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_need_sort(t_node **stack_a)
+void	check_need_sort(t_node **stack_a, t_node **head_a)
 {
 	while (*stack_a && (*stack_a)->next)
 	{
 		if ((*stack_a)->num > (*stack_a)->next->num)
 		{
+			*stack_a = *head_a;
 			return ;
 		}
 		*stack_a = (*stack_a)->next;
@@ -28,10 +29,10 @@ void	check_need_sort(t_node **stack_a)
 
 void	sort(int argc, t_node *head_a, t_node *stack_a)
 {
-	t_node	*stack_b;
-	t_node	*head_b;
-	stack_b = NULL;
-	head_b = NULL;
+	// t_node	*stack_b;
+	// t_node	*head_b;
+	// stack_b = NULL;
+	// head_b = NULL;
 	if (argc == 1)
 	{
 		exit(EXIT_SUCCESS);
@@ -42,7 +43,7 @@ void	sort(int argc, t_node *head_a, t_node *stack_a)
 	}
 	else if (argc == 3)
 	{
-		sort_three(head_a, stack_a, head_b, stack_b);
+		sort_three(head_a, stack_a);
 	}
 	// else if (argc <= 5)
 	// {
@@ -56,7 +57,7 @@ void	sort(int argc, t_node *head_a, t_node *stack_a)
 
 int	main(int argc, char *argv[])
 {
-	int	i;
+	int		i;
 	t_node	*stack_a;
 	t_node	*head_a;
 
@@ -76,7 +77,7 @@ int	main(int argc, char *argv[])
 		}
 	}
 	stack_a = head_a;
-	check_need_sort(&stack_a);
+	check_need_sort(&stack_a, &head_a);
 	sort(argc, head_a, stack_a);
 	return (0);
 }

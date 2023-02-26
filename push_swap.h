@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:24:08 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/23 00:24:25 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/23 02:17:16 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ void				rrb(t_node **stack, t_node **head);
 void				rrr(t_node **st_a, t_node **head_a, t_node **st_b,
 						t_node **head_b);
 void				sort_two(t_node *head_a, t_node *stack_a);
+void				sort_three(t_node *hd_a, t_node *st_a);
 
-void				check_need_sort(t_node **stack_a);
+void				check_need_sort(t_node **stack_a, t_node **head_a);
 
 #endif
