@@ -34,24 +34,13 @@ void	sort(int argc, t_node *head_a, t_node *stack_a)
 
 	stack_b = NULL;
 	head_b = stack_b;
-	if (argc == 1)
-	{
-		exit(EXIT_SUCCESS);
-	}
-	else if (argc == 2)
-	{
+	if (argc == 2)
 		sort_two(head_a, stack_a);
-	}
-	else if (argc == 3)
-	{
+	if (argc == 3)
 		sort_three(head_a, stack_a);
-	}
-	else if (argc == 4)
-	{
+	if (argc == 4)
 		sort_four(head_a, stack_a, head_b, stack_b);
-	}
-	else if (argc == 5)
-	{
+	if (argc == 5)
 		sort_five(head_a, stack_a, head_b, stack_b);
 	}
 	// else if (argc == 5)
