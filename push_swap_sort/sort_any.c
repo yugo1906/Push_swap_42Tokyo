@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 22:47:09 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/03/01 09:22:54 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/03/01 09:45:36 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,30 +61,19 @@ void	radix_sort(t_node **hd_a, t_node **st_a, t_node **hd_b, size_t *point,
 	size_t	count;
 	int		tmp_argc;
 
-	// ft_printf("point初期値=%d\n", *point);
 	st_b = hd_b;
 	count = 0;
-	// max_rank = get_max_rank(hd_a, st_a);
-	// max_rank_digits = get_max_rank_digits(max_rank);
 	while (*st_a)
 	{
 		count++;
 		if ((*st_a)->rank == *point)
 		{
-			// ft_printf("st->rank = %d\n", (*st_a)->rank);
-			// ft_printf("point = %d\n", *point);
-			// ft_printf("count= %d\n", count);
 			*point = *point + 1;
-			// ft_printf("*point+1 = %d\n", *point);
 			break ;
 		}
-		// ft_printf("count= %d\n", count);
-		// ft_printf("point= %d\n", *point);
 		*st_a = (*st_a)->next;
 	}
 	*st_a = *hd_a;
-	// ft_printf("aast-rank = %d\n", (*st_a)->rank);
-	// ft_printf("argc = %d\n", *argc);
 	if (check_rotation(count, argc))
 	{
 		while (--count)
@@ -97,12 +86,9 @@ void	radix_sort(t_node **hd_a, t_node **st_a, t_node **hd_b, size_t *point,
 	else
 	{
 		tmp_argc = (*argc + 1) - count;
-		// ft_printf("tmp_argc = %d\n", tmp_argc);
 		while (tmp_argc-- > 0)
 		{
 			rra(&*st_a, &*hd_a);
-			// ft_printf("count = %d\n", count);
-			// ft_printf("st-rank = %d\n", (*st_a)->rank);
 		}
 		pb(&*hd_a, &*st_a, &*hd_b, &*st_b);
 		*argc = *argc - 1;
@@ -119,7 +105,6 @@ void	sort_any(int argc, t_node *hd_a, t_node *st_a, t_node *hd_b)
 	point = 0;
 	while (st_a)
 	{
-		// ft_printf("point = %d\n", point);
 		radix_sort(&hd_a, &st_a, &hd_b, &point, &argc);
 		st_a = hd_a;
 	}
