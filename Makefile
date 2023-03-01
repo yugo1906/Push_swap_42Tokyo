@@ -8,7 +8,7 @@ CC			=	gcc
 # todo::メモリーリークのオプションを提出前に外す
 # todo::-Wall -Wextra -Werror をcflagsにつける
 CFLAGS	= -g -fsanitize=address
-CFLAGS = -Wall -Wextra -Werror
+# CFLAGS = -Wall -Wextra -Werror
 LISTDIR = list_func_utils
 PSCMDDIR = push_swap_cmd
 PSSORTDIR = push_swap_sort
@@ -25,6 +25,8 @@ SRCS		=	main.c \
 					$(PSSORTDIR)/sort_two.c \
 					$(PSSORTDIR)/sort_three.c \
 					$(PSSORTDIR)/sort_four.c \
+					$(PSSORTDIR)/sort_five.c \
+					$(PSSORTDIR)/sort_any.c \
 					coordinate_compression/coordinate_compression.c
 OBJS		=	${SRCS:%.c=%.o}
 LIBFTDIR =	./libft

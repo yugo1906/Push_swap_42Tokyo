@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:24:08 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/26 23:28:08 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/03/01 00:17:30 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@
 # include "./include_printf/ft_printf.h"
 # include "./libft/libft.h"
 # include <limits.h>
+# include <stdbool.h>
 # include <stdlib.h>
 # include <unistd.h>
 
 typedef struct s_node
 {
 	int				num;
+	size_t			rank;
 	struct s_node	*next;
 }					t_node;
 
@@ -56,6 +58,8 @@ void				sort_four(t_node *hd_a, t_node *st_a, t_node *hd_b,
 						t_node *st_b);
 void				sort_five(t_node *hd_a, t_node *st_a, t_node *hd_b,
 						t_node *st_b);
+void				sort_any(int argc, t_node *hd_a, t_node *st_a,
+						t_node *hd_b);
 void				check_need_sort(t_node **stack_a, t_node **head_a);
 void				coordinate_compression(t_node **stack_a, t_node **head_a);
 
