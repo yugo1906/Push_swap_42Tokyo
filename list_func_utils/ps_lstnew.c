@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 21:56:13 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/22 22:28:09 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/02/28 09:38:21 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_node	*ps_lstnew(t_node **stack)
 		put_error_and_exit();
 	}
 	new_node->num = 0;
+	new_node->rank = 0;
 	new_node->next = NULL;
 	return (new_node);
 }
