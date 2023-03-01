@@ -57,5 +57,6 @@ void				sort_four(t_node *hd_a, t_node *st_a, t_node *hd_b,
 void				sort_five(t_node *hd_a, t_node *st_a, t_node *hd_b,
 						t_node *st_b);
 void				check_need_sort(t_node **stack_a, t_node **head_a);
+void				coordinate_compression(t_node **stack_a, t_node **head_a);
 
 #endif

@@ -25,7 +25,7 @@ SRCS		=	main.c \
 					$(PSSORTDIR)/sort_two.c \
 					$(PSSORTDIR)/sort_three.c \
 					$(PSSORTDIR)/sort_four.c \
-					$(PSSORTDIR)/sort_five.c
+					coordinate_compression/coordinate_compression.c
 OBJS		=	${SRCS:%.c=%.o}
 LIBFTDIR =	./libft
 PRINTFDIR	=	./include_printf

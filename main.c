@@ -73,6 +73,7 @@ int	main(int argc, char *argv[])
 	}
 	stack_a = head_a;
 	check_need_sort(&stack_a, &head_a);
+	coordinate_compression(&stack_a, &head_a);
 	sort(argc, head_a, stack_a);
 	return (0);
 }
