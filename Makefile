@@ -35,8 +35,10 @@ clean:
 	rm -f ${OBJS}
 
 fclean:clean
+	make fclean -C $(LIBFTDIR)
+	make fclean -C $(PRINTFDIR)
 	rm -f ${NAME}
 
 re: fclean $(NAME)
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
