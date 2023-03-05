@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:24:08 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/03/01 00:17:30 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/03/05 11:44:10 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 typedef struct s_node
 {
 	int				num;
-	size_t			rank;
+	unsigned long			rank;
 	struct s_node	*next;
 }					t_node;
 

@@ -16,8 +16,6 @@ SRCS		=	main.c \
 					ps_atoi.c \
 					program_end.c \
 					$(LISTDIR)/ps_lstnew.c \
-					$(LISTDIR)/ps_lstadd_back.c \
-					$(LISTDIR)/ps_lstlast.c \
 					$(PSCMDDIR)/swap.c \
 					$(PSCMDDIR)/push.c \
 					$(PSCMDDIR)/rotate.c \
