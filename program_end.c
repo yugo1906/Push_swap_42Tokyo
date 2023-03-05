@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 23:21:58 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/03/05 12:51:31 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/03/05 17:52:05 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ void	all_stack_free(t_node **stack)
 	}
 }
 
-void	put_error_and_exit(void)
+void	put_error_and_free_and_exit(t_node **stack_a)
 {
 	write(FD_2, "Error\n", 6);
+	all_stack_free(&*stack_a);
 	exit(EXIT_FAILURE);
 }

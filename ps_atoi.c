@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 09:39:48 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/21 09:38:34 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/03/05 18:29:24 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,21 @@ size_t	check_space_and_check_sign(const char *str, int *sign)
 	return (i);
 }
 
-int	ps_atoi(const char *str)
+void	check_error(const char str, long long res, t_node **st_a, t_node **hd_a)
+{
+	if (!ft_isdigit(str) && str != '\0')
+	{
+		*st_a = *hd_a;
+		put_error_and_free_and_exit(&*st_a);
+	}
+	if (res > INT_MAX || res < INT_MIN)
+	{
+		*st_a = *hd_a;
+		put_error_and_free_and_exit(&*st_a);
+	}
+}
+
+int	ps_atoi(const char *str, t_node **stack_a, t_node **head_a)
 {
 	long long	res;
 	int			sign;
@@ -57,9 +71,6 @@ int	ps_atoi(const char *str)
 		res = (res * 10) + (sign * (str[i] - '0'));
 		i++;
 	}
-	if (!ft_isdigit(str[i]) && str[i] != '\0')
-		put_error_and_exit();
-	if (res > INT_MAX || res < INT_MIN)
-		put_error_and_exit();
+	check_error(str[i], res, &*stack_a, &*head_a);
 	return ((int)res);
 }

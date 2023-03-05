@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:24:08 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/03/05 13:16:15 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/03/05 18:06:52 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@ typedef struct s_node
 	struct s_node	*next;
 }					t_node;
 
-int					ps_atoi(const char *str);
-void				put_error_and_exit(void);
+int					ps_atoi(const char *str, t_node **stack_a, t_node **head_a);
 void				all_stack_free(t_node **stack);
-t_node				*ps_lstnew(t_node **stack);
+t_node				*ps_lstnew(t_node **stack, t_node **head);
 void				sa(t_node **stack, t_node **head);
 void				sb(t_node **stack, t_node **head);
 void				ss(t_node **st_a, t_node **head_a, t_node **st_b,
@@ -61,5 +60,6 @@ void				sort_five(t_node *hd_a, t_node *st_a, t_node *hd_b,
 void				sort_any(int argc, t_node *hd_a, t_node *st_a,
 						t_node *hd_b);
 void				coordinate_compression(t_node **stack_a, t_node **head_a);
+void				put_error_and_free_and_exit(t_node **stack_a);
 
 #endif

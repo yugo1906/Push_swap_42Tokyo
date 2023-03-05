@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 22:47:09 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/03/05 12:58:55 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/03/05 18:27:41 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,4 @@ void	radix_sort(t_node **hd_a, t_node **st_a, t_node **hd_b, int argc)
 void	sort_any(int argc, t_node *hd_a, t_node *st_a, t_node *hd_b)
 {
 	radix_sort(&hd_a, &st_a, &hd_b, argc);
-	st_a = hd_a;
 }

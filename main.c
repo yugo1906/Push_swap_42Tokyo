@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:17:25 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/03/05 12:58:02 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/03/05 18:26:02 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,31 @@ void	check_need_sort(t_node **stack_a, t_node **head_a)
 		}
 		*stack_a = (*stack_a)->next;
 	}
-	all_stack_free(stack_a);
+	all_stack_free(&*stack_a);
 	exit(EXIT_SUCCESS);
+}
+
+void	check_duplication(t_node **stack_a)
+{
+	t_node	*tmp1;
+	t_node	*tmp2;
+
+	tmp1 = *stack_a;
+	tmp2 = tmp1->next;
+	while (tmp1)
+	{
+		while (tmp2)
+		{
+			if (tmp1->rank == tmp2->rank)
+			{
+				put_error_and_free_and_exit(&*stack_a);
+			}
+			tmp2 = tmp2->next;
+		}
+		tmp1 = tmp1->next;
+		if (tmp1)
+			tmp2 = tmp1->next;
+	}
 }
 
 void	sort(int argc, t_node *head_a, t_node *stack_a)
@@ -53,24 +76,25 @@ int	main(int argc, char *argv[])
 	t_node	*stack_a;
 	t_node	*head_a;
 
-	stack_a = ps_lstnew(&stack_a);
+	head_a = NULL;
+	stack_a = ps_lstnew(&stack_a, &head_a);
 	head_a = stack_a;
 	if (argc == 1)
-		put_error_and_exit();
+		exit(EXIT_SUCCESS);
 	argc = argc - 1;
 	i = 0;
 	while (i++ < argc)
 	{
-		stack_a->num = ps_atoi(argv[i]);
+		stack_a->num = ps_atoi(argv[i], &stack_a, &head_a);
 		if (i != argc)
 		{
-			stack_a->next = ps_lstnew(&stack_a);
+			stack_a->next = ps_lstnew(&stack_a, &head_a);
 			stack_a = stack_a->next;
 		}
 	}
-	stack_a = head_a;
-	check_need_sort(&stack_a, &head_a);
 	coordinate_compression(&stack_a, &head_a);
+	check_duplication(&stack_a);
+	check_need_sort(&stack_a, &head_a);
 	sort(argc, head_a, stack_a);
 	return (0);
 }
