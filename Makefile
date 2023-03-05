@@ -1,14 +1,6 @@
-### ToDo
-# 1.依存するファイル：libft.a, libftprintf.a
-# 2.push_swapプログラムのための*.o
-# 3. 1と2を一緒にコンパイル→push_swap
-
 NAME		=	push_swap
 CC			=	gcc
-# todo::メモリーリークのオプションを提出前に外す
-# todo::-Wall -Wextra -Werror をcflagsにつける
-CFLAGS	= -g -fsanitize=address
-# CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 LISTDIR = list_func_utils
 PSCMDDIR = push_swap_cmd
 PSSORTDIR = push_swap_sort
