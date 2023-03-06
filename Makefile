@@ -1,5 +1,4 @@
 NAME		=	push_swap
-CC			=	gcc
 CFLAGS = -Wall -Wextra -Werror
 LISTDIR = list_func_utils
 PSCMDDIR = push_swap_cmd
