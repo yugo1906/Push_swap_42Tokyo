@@ -6,28 +6,17 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 09:39:48 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/03/05 18:29:24 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/03/09 08:53:21 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_isspace(int c)
-{
-	if (c == ' ' || c == '\f' || c == '\n')
-		return (1);
-	if (c == '\r' || c == '\t' || c == '\v')
-		return (1);
-	return (0);
-}
-
-size_t	check_space_and_check_sign(const char *str, int *sign)
+size_t	check_sign(const char *str, int *sign)
 {
 	size_t	i;
 
 	i = 0;
-	while (ft_isspace(str[i]))
-		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
@@ -59,7 +48,7 @@ int	ps_atoi(const char *str, t_node **stack_a, t_node **head_a)
 
 	res = 0;
 	sign = 1;
-	i = check_space_and_check_sign(str, &sign);
+	i = check_sign(str, &sign);
 	while (ft_isdigit(str[i]))
 	{
 		if (ft_isdigit(str[i]) == 0)
