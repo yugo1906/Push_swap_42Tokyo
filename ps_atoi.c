@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 09:39:48 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/03/09 08:53:21 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/03/12 17:33:10 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,9 @@ int	ps_atoi(const char *str, t_node **stack_a, t_node **head_a)
 	i = check_sign(str, &sign);
 	while (ft_isdigit(str[i]))
 	{
-		if (ft_isdigit(str[i]) == 0)
-			return (0);
-		if (sign == 1 && (res > ((LONG_MAX - (sign * (str[i] - '0'))) / 10)))
-			return ((int)LONG_MAX);
-		if (sign == -1 && (res < ((LONG_MIN - (sign * (str[i] - '0'))) / 10)))
-			return ((int)LONG_MIN);
 		res = (res * 10) + (sign * (str[i] - '0'));
+		check_error(str[i], res, &*stack_a, &*head_a);
 		i++;
 	}
-	check_error(str[i], res, &*stack_a, &*head_a);
 	return ((int)res);
 }
