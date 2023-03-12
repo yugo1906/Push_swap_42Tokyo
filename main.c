@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:17:25 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/03/05 18:26:02 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/03/12 17:44:24 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,13 @@ void	sort(int argc, t_node *head_a, t_node *stack_a)
 	if (argc == 2)
 		sort_two(head_a, stack_a);
 	else if (argc == 3)
-		sort_three(head_a, stack_a);
+		sort_three(&head_a, &stack_a, true);
 	else if (argc == 4)
 		sort_four(head_a, stack_a, head_b, stack_b);
 	else if (argc == 5)
 		sort_five(head_a, stack_a, head_b, stack_b);
 	else if (argc >= 6)
 		sort_any(argc, head_a, stack_a, head_b);
-	all_stack_free(&stack_a);
 }
 
 int	main(int argc, char *argv[])
@@ -77,11 +76,11 @@ int	main(int argc, char *argv[])
 	t_node	*stack_a;
 	t_node	*head_a;
 
+	if (argc == 1)
+		exit(EXIT_SUCCESS);
 	head_a = NULL;
 	stack_a = ps_lstnew(&stack_a, &head_a);
 	head_a = stack_a;
-	if (argc == 1)
-		exit(EXIT_SUCCESS);
 	argc = argc - 1;
 	i = 0;
 	while (i++ < argc)
@@ -99,133 +98,3 @@ int	main(int argc, char *argv[])
 	sort(argc, head_a, stack_a);
 	return (0);
 }
-
-// test出力コード
-// pa(&stack_a, &stack_b);
-// pa(&stack_a, &stack_b);
-// pa(&stack_a, &stack_b);
-// pa(&stack_a, &stack_b);
-// sa(&stack_a, &head_a);
-// /*todo::最後に消す スタック内を確認するテストコード */
-// // テストコード:stack_aの値確認
-// stack_a = head_a;
-// ft_printf("stack_aの初期値\n");
-// while (stack_a != NULL)
-// {
-// 	ft_printf("stack_a->num = %d\n", stack_a->num);
-// 	stack_a = stack_a->next;
-// }
-// pa(&head_a, &head_b);
-// pa(&head_a, &head_b);
-// pa(&head_a, &head_b);
-// // reverse_rotateの挙動確認
-// ft_printf("rraの挙動確認===\n");
-// rra(&stack_a, &head_a);
-// // rra(&stack_a, &head_a);
-// while (stack_a != NULL)
-// {
-// 	ft_printf("stack_a->num = %d\n", stack_a->num);
-// 	stack_a = stack_a->next;
-// }
-// ft_printf("rrbの挙動確認===\n");
-// rrb(&stack_b, &head_b);
-// // rrb(&stack_b, &head_b);
-// while (stack_b != NULL)
-// {
-// 	ft_printf("stack_b->num = %d\n", stack_b->num);
-// 	stack_b = stack_b->next;
-// }
-// ft_printf("rrrの挙動確認===\n");
-// rrr(&stack_a, &head_a, &stack_b, &head_b);
-// // rrr(&stack_a, &head_a, &stack_b, &head_b);
-// while (stack_a != NULL)
-// {
-// 	ft_printf("stack_a->num = %d\n", stack_a->num);
-// 	stack_a = stack_a->next;
-// }
-// while (stack_b != NULL)
-// {
-// 	ft_printf("stack_b->num = %d\n", stack_b->num);
-// 	stack_b = stack_b->next;
-// }
-// // swapの挙動確認
-// sa(&stack_a, &head_a);
-// ft_printf("saの挙動確認===\n");
-// while (stack_a != NULL)
-// {
-// 	ft_printf("stack_a->num = %d\n", stack_a->num);
-// 	stack_a = stack_a->next;
-// }
-// pa(&head_b, &stack_b, &head_a, &stack_a);
-// pb(&head_a, &stack_a, &head_b, &stack_b);
-// pb(&head_a, &stack_a, &head_b, &stack_b);
-// pa(&head_b, &stack_b, &head_a, &stack_a);
-// pa(&head_b, &stack_b, &head_a, &stack_a);
-// pa(&head_b, &stack_b, &head_a, &stack_a);
-// pa(&head_a, &head_b);
-// pb(&head_b, &head_a);
-// pb(&head_b, &head_a);
-// pb(&head_b, &head_a);
-// ft_printf("pa後===\n");
-// stack_a = head_a;
-// stack_b = head_b;
-// while (stack_a != NULL)
-// {
-// 	ft_printf("stack_a->num = %d\n", stack_a->num);
-// 	stack_a = stack_a->next;
-// }
-// while (stack_b != NULL)
-// {
-// 	ft_printf("stack_b->num = %d\n", stack_b->num);
-// 	stack_b = stack_b->next;
-// }
-// // rotateの挙動確認
-// ft_printf("raの挙動確認===\n");
-// ra(&stack_a, &head_a);
-// ra(&stack_a, &head_a);
-// while (stack_a != NULL)
-// {
-// 	ft_printf("stack_a->num = %d\n", stack_a->num);
-// 	stack_a = stack_a->next;
-// }
-// ft_printf("rbの挙動確認===\n");
-// rb(&stack_b, &head_b);
-// while (stack_b != NULL)
-// {
-// 	ft_printf("stack_b->num = %d\n", stack_b->num);
-// 	stack_b = stack_b->next;
-// }
-// ft_printf("rrの挙動確認===\n");
-// rr(&stack_a, &head_a, &stack_b, &head_b);
-// while (stack_a != NULL)
-// {
-// 	ft_printf("stack_a->num = %d\n", stack_a->num);
-// 	stack_a = stack_a->next;
-// }
-// while (stack_b != NULL)
-// {
-// 	ft_printf("stack_b->num = %d\n", stack_b->num);
-// 	stack_b = stack_b->next;
-// }
-// // // reverse_rotateの挙動確認
-// // ft_printf("rraの挙動確認===\n");
-// // rra(&stack_a, &head_a);
-// // rra(&stack_a, &head_a);
-// // while (stack_a != NULL)
-// // {
-// // 	ft_printf("stack_a->num = %d\n", stack_a->num);
-// // 	stack_a = stack_a->next;
-// // }
-// ft_printf("ss後===\n");
-// // ss(&stack_a, &head_a, &stack_b, &head_b);
-// ss(&stack_a, &head_a, &stack_b, &head_b);
-// while (stack_a != NULL)
-// {
-// 	ft_printf("stack_a->num = %d\n", stack_a->num);
-// 	stack_a = stack_a->next;
-// }
-// while (stack_b != NULL)
-// {
-// 	ft_printf("stack_b->num = %d\n", stack_b->num);
-// 	stack_b = stack_b->next;
-// }

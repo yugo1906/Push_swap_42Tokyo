@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 23:07:11 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/27 08:23:24 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/03/12 08:40:03 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,14 @@ static void	two_pb(t_node **hd_a, t_node **st_a, t_node **hd_b, t_node **st_b)
 
 void	sort_five(t_node *hd_a, t_node *st_a, t_node *hd_b, t_node *st_b)
 {
+	bool	is_exit;
+
+	is_exit = false;
 	two_pb(&hd_a, &st_a, &hd_b, &st_b);
 	two_pb(&hd_a, &st_a, &hd_b, &st_b);
-	sort_three(hd_a, st_a);
+	sort_three(&hd_a, &st_a, is_exit);
 	pa(&hd_b, &st_b, &hd_a, &st_a);
 	pa(&hd_b, &st_b, &hd_a, &st_a);
+	all_stack_free(&st_a);
+	exit(EXIT_SUCCESS);
 }

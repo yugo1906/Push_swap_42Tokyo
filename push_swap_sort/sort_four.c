@@ -6,7 +6,7 @@
 /*   By: yughoshi <yughoshi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 22:47:37 by yughoshi          #+#    #+#             */
-/*   Updated: 2023/02/26 19:21:46 by yughoshi         ###   ########.fr       */
+/*   Updated: 2023/03/12 16:27:46 by yughoshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,55 @@
 
 static void	sort_case1(t_node *hd_a, t_node *st_a, t_node *hd_b, t_node *st_b)
 {
+	bool	is_exit;
+
+	is_exit = false;
+	st_a = hd_a;
 	pb(&hd_a, &st_a, &hd_b, &st_b);
-	sort_three(hd_a, st_a);
+	sort_three(&hd_a, &st_a, is_exit);
 	pa(&hd_b, &st_b, &hd_a, &st_a);
+	all_stack_free(&st_a);
+	exit(EXIT_SUCCESS);
 }
 
 static void	sort_case2(t_node *hd_a, t_node *st_a, t_node *hd_b, t_node *st_b)
 {
+	bool	is_exit;
+
+	is_exit = false;
 	sa(&st_a, &hd_a);
 	pb(&hd_a, &st_a, &hd_b, &st_b);
-	sort_three(hd_a, st_a);
+	sort_three(&hd_a, &st_a, is_exit);
 	pa(&hd_b, &st_b, &hd_a, &st_a);
+	all_stack_free(&st_a);
+	exit(EXIT_SUCCESS);
 }
 
 static void	sort_case3(t_node *hd_a, t_node *st_a, t_node *hd_b, t_node *st_b)
 {
+	bool	is_exit;
+
+	is_exit = false;
 	ra(&st_a, &hd_a);
 	ra(&st_a, &hd_a);
 	pb(&hd_a, &st_a, &hd_b, &st_b);
-	sort_three(hd_a, st_a);
+	sort_three(&hd_a, &st_a, is_exit);
 	pa(&hd_b, &st_b, &hd_a, &st_a);
+	all_stack_free(&st_a);
+	exit(EXIT_SUCCESS);
 }
 
 static void	sort_case4(t_node *hd_a, t_node *st_a, t_node *hd_b, t_node *st_b)
 {
+	bool	is_exit;
+
+	is_exit = false;
 	rra(&st_a, &hd_a);
 	pb(&hd_a, &st_a, &hd_b, &st_b);
-	sort_three(hd_a, st_a);
+	sort_three(&hd_a, &st_a, is_exit);
 	pa(&hd_b, &st_b, &hd_a, &st_a);
+	all_stack_free(&st_a);
+	exit(EXIT_SUCCESS);
 }
 
 void	sort_four(t_node *hd_a, t_node *st_a, t_node *hd_b, t_node *st_b)
