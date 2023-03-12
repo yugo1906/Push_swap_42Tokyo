@@ -23,6 +23,7 @@ void	check_need_sort(t_node **stack_a, t_node **head_a)
 		}
 		*stack_a = (*stack_a)->next;
 	}
+	stack_a = head_a;
 	all_stack_free(&*stack_a);
 	exit(EXIT_SUCCESS);
 }
