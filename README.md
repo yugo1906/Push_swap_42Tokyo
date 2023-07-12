@@ -6,11 +6,9 @@
     - https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
     
 ## デモ動画
-
-https://github.com/yugo1906/Push_swap_42Tokyo/assets/89300571/f580c4fa-282d-45d8-8562-bc560c655c6c
+https://github.com/yugo1906/Push_swap_42Tokyo/assets/89300571/587c51ee-47c4-4389-8f2d-bdcbfe228307
 
 ※本リポジトリのプログラムで昇順にソート中の並び替えの過程をビジュアライズするツールを活用して、上の動画を作成しています
-
 
 ## 実装の制約
 - normというコーディング規約を必ず守ること（for文は禁止、Allmanスタイルで書く、などの様々なルールあり)
