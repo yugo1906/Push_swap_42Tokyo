@@ -1,6 +1,6 @@
 # Push_swap_42tokyo
 ## 本リポジトリの概要
-- 限られた並び替え方法を用いて、一定の基準以下の手数でスタｌック上の複数のデータを昇順にソートするプログラムを実装
+- 限られた並び替え方法を用いて、一定の基準以下の手数でスタック上の複数のデータを昇順にソートするプログラムを実装
   - 基数ソートのアルゴリズムを用いて実装しました
   - Push_swapの課題概要については以下URL先に記載あり（42非公式の情報）
     - https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
